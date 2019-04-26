@@ -11,15 +11,22 @@ def allocate_points():
     global skills
     while sum(skills.values()) != 16:
 
+        error = False
         for skill in skills:
-            num_points = int(input("Enter points for skill " + skill + ": "))
+            try:
+                num_points = int(input("Enter points for skill " + skill + ": "))
+            except ValueError:
+                print("ERROR: Invalid input")
+                error = True
+                break;
             if num_points < 0:
                 print("ERROR: Cannot assign negative points")
+                error = True
                 break
             else:
                 skills[skill] = num_points
 
-        if sum(skills.values()) != 16:
+        if sum(skills.values()) != 16 and error is False:
             print("ERROR: Must assign exactly 16 points")
             skills = dict.fromkeys(skills.keys(), 0)
 
