@@ -1,4 +1,5 @@
 from Player import Player
+from Universe import Universe
 
 skills = dict.fromkeys(["PILOT", "FIGHTER", "TRADER", "ENGINEER"])
 skills = dict.fromkeys(skills.keys(), 0)
@@ -52,7 +53,19 @@ choose_difficulty()
 
 test_player = Player(input_name, skills, difficulty)
 
+print(test_player.get_name())
 print(test_player.get_skills())
+print(test_player.get_difficulty())
+print(test_player.get_credits())
+print(test_player.get_ship_type())
+
+test_universe = Universe()
+
+for solar in  test_universe.get_solar_systems():
+    print(solar.get_name())
+    print(solar.get_coords())
+    print(solar.get_tech_level())
+    print(solar.get_resources())
 
 
 print("END")
