@@ -8,6 +8,7 @@ class Player:
         self.difficulty = difficulty
         self.credits = 1000
         self.ship_type = "GNAT"
+        self.marketplace = None
 
     def get_name(self):
         return self.name
